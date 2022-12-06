@@ -2,7 +2,7 @@ import { commands, errors } from "../constants.js";
 import { promises as fsPromises } from "fs";
 
 const commands_zero_arg = [commands.LS];
-const commands_one_arg = [commands.CD, commands.OS];
+const commands_one_arg = [commands.CD, commands.OS, commands.HASH];
 const commands_two_arg = ["copy"];
 
 const commands_with_paths = [commands.CD];
@@ -22,14 +22,11 @@ export async function validateArgs(command, args) {
 }
 
 function isArgNumValid(command, argNum) {
-  if (
+  return (
     (commands_zero_arg.includes(command) && argNum === 0) ||
     (commands_one_arg.includes(command) && argNum === 1) ||
     (commands_two_arg.includes(command) && argNum === 2)
-  ) {
-    return true;
-  }
-  return false;
+  );
 }
 
 function parseArgs(args) {
