@@ -2,7 +2,7 @@ import { commands, errors } from "../constants.js";
 import { promises as fsPromises } from "fs";
 
 const commands_zero_arg = [commands.LS];
-const commands_one_arg = [commands.CD];
+const commands_one_arg = [commands.CD, commands.OS];
 const commands_two_arg = ["copy"];
 
 const commands_with_paths = [commands.CD];

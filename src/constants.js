@@ -5,6 +5,7 @@ export const user = {
 export const commands = {
   CD: "cd",
   LS: "ls",
+  OS: "os",
 };
 
 export const errors = {
