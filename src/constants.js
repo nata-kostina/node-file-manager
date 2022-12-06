@@ -1,13 +1,14 @@
 export const user = {
-  name: ''
+  name: "",
 };
 
 export const commands = {
   CD: "cd",
+  LS: "ls",
 };
 
 export const errors = {
   INVALID_INPUT: "Invalid input",
-}
+};
 
-export const errLog = []
+export const errLog = [];
