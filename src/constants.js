@@ -12,7 +12,8 @@ export const commands = {
   UP: "up",
   ADD: "add",
   RN: "rn",
-  CP: "cp"
+  CP: "cp",
+  MV: "mv"
 };
 
 export const errors = {
