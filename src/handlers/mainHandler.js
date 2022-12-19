@@ -4,9 +4,10 @@ import { validateArgs } from "./../tools/validator.js";
 import { handleLS } from "./ls.js";
 import { handleOS } from "./os.js";
 import { handleHash } from "./hash.js";
-import { handleRM } from './rm.js';
-import { handleCAT } from './cat.js';
-import { handleUP } from './up.js';
+import { handleRM } from "./rm.js";
+import { handleCAT } from "./cat.js";
+import { handleUP } from "./up.js";
+import { handleADD } from './add.js';
 
 export const mainHandler = async (line) => {
   const [command, ...args] = line.trim().split(" ");
@@ -33,6 +34,9 @@ export const mainHandler = async (line) => {
         break;
       case commands.UP:
         handleUP();
+        break;
+      case commands.ADD:
+        handleADD(...args);
         break;
       default:
         throw new Error(errors.INVALID_INPUT);
