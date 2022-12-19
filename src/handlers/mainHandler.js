@@ -10,7 +10,9 @@ import { handleUP } from "./up.js";
 import { handleADD } from "./add.js";
 import { handleRN } from "./rn.js";
 import { handleCP } from "./cp.js";
-import { handleMV } from './mv.js';
+import { handleMV } from "./mv.js";
+import { handleCompress } from "./compress.js";
+import { handleDecompress } from "./decompress.js";
 
 export const mainHandler = async (line) => {
   const [command, ...args] = line.trim().split(" ");
@@ -47,9 +49,15 @@ export const mainHandler = async (line) => {
       case commands.CP:
         handleCP(args);
         break;
-        case commands.MV:
-          handleMV(args);
-          break;
+      case commands.MV:
+        handleMV(args);
+        break;
+      case commands.COMPRESS:
+        handleCompress(args);
+        break;
+      case commands.DECOMPRESS:
+        handleDecompress(args);
+        break;
       default:
         throw new Error(errors.INVALID_INPUT);
     }

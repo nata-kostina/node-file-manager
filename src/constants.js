@@ -13,7 +13,9 @@ export const commands = {
   ADD: "add",
   RN: "rn",
   CP: "cp",
-  MV: "mv"
+  MV: "mv",
+  COMPRESS: "compress",
+  DECOMPRESS: "decompress"
 };
 
 export const errors = {
