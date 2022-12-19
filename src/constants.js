@@ -6,7 +6,9 @@ export const commands = {
   CD: "cd",
   LS: "ls",
   OS: "os",
-  HASH: "hash"
+  HASH: "hash",
+  RM: "rm",
+  CAT: "cat",
 };
 
 export const errors = {

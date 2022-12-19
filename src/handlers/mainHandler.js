@@ -3,12 +3,15 @@ import { handleCD } from "./cd.js";
 import { validateArgs } from "./../tools/validator.js";
 import { handleLS } from "./ls.js";
 import { handleOS } from "./os.js";
-import { handleHash } from './hash.js';
+import { handleHash } from "./hash.js";
+import { handleRM } from './rm.js';
+import { handleCAT } from './cat.js';
 
 export const mainHandler = async (line) => {
   const [command, ...args] = line.trim().split(" ");
   try {
     const validatedArgs = await validateArgs(command, args);
+    console.log('validatedArgs: ', validatedArgs);
     switch (command) {
       case commands.CD:
         handleCD(...validatedArgs);
@@ -21,6 +24,12 @@ export const mainHandler = async (line) => {
         break;
       case commands.HASH:
         handleHash(...args);
+        break;
+      case commands.RM:
+        handleRM(...args);
+        break;
+      case commands.CAT:
+        handleCAT(...args);
         break;
       default:
         throw new Error(errors.INVALID_INPUT);
