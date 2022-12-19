@@ -9,6 +9,7 @@ export const commands = {
   HASH: "hash",
   RM: "rm",
   CAT: "cat",
+  UP: "up"
 };
 
 export const errors = {

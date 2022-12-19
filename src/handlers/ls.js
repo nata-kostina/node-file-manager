@@ -4,12 +4,18 @@ import { commandHandler } from "./../decorators/commandHandler.js";
 import { dirHandler } from "./../fs/dirInterface.js";
 
 const lsCallback = async () => {
-  const data = await fsPromises.readdir(dirHandler.currentDir);
+  const data = await fsPromises.readdir(dirHandler.currentDir, {
+    withFileTypes: true,
+  });
   const table = [];
   for (const item of data) {
-    const stat = await fsPromises.stat(path.join(dirHandler.currentDir, item));
-    const isDirectory = stat.isDirectory();
-    table.push(new Cell(item, isDirectory ? "directory" : "file"));
+    try {
+      const stat = await fsPromises.stat(
+        path.join(dirHandler.currentDir, item.name)
+      );
+      const isDirectory = stat.isDirectory();
+      table.push(new Cell(item.name, isDirectory ? "directory" : "file"));
+    } catch (error) {}
   }
   console.table(table);
 };

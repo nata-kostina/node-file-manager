@@ -6,12 +6,12 @@ import { handleOS } from "./os.js";
 import { handleHash } from "./hash.js";
 import { handleRM } from './rm.js';
 import { handleCAT } from './cat.js';
+import { handleUP } from './up.js';
 
 export const mainHandler = async (line) => {
   const [command, ...args] = line.trim().split(" ");
   try {
     const validatedArgs = await validateArgs(command, args);
-    console.log('validatedArgs: ', validatedArgs);
     switch (command) {
       case commands.CD:
         handleCD(...validatedArgs);
@@ -30,6 +30,9 @@ export const mainHandler = async (line) => {
         break;
       case commands.CAT:
         handleCAT(...args);
+        break;
+      case commands.UP:
+        handleUP();
         break;
       default:
         throw new Error(errors.INVALID_INPUT);
