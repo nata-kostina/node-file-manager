@@ -13,6 +13,7 @@ import { handleCP } from "./cp.js";
 import { handleMV } from "./mv.js";
 import { handleCompress } from "./compress.js";
 import { handleDecompress } from "./decompress.js";
+import { processExitHandler } from "./../tools/exitHandler.js";
 
 export const mainHandler = async (line) => {
   const [command, ...args] = line.trim().split(" ");
@@ -57,6 +58,9 @@ export const mainHandler = async (line) => {
         break;
       case commands.DECOMPRESS:
         handleDecompress(args);
+        break;
+      case commands.EXIT:
+        processExitHandler();
         break;
       default:
         throw new Error(errors.INVALID_INPUT);
