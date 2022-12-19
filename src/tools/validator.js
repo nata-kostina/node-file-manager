@@ -2,10 +2,29 @@ import { commands, errors } from "../constants.js";
 import { promises as fsPromises } from "fs";
 
 const commands_zero_arg = [commands.LS, commands.UP];
-const commands_one_arg = [commands.CD, commands.OS, commands.HASH, commands.RM, commands.CAT, commands.ADD];
-const commands_two_arg = ["copy", commands.RN, commands.CP, commands.MV, commands.COMPRESS, commands.DECOMPRESS];
+const commands_one_arg = [
+  commands.CD,
+  commands.OS,
+  commands.HASH,
+  commands.RM,
+  commands.CAT,
+  commands.ADD,
+];
+const commands_two_arg = [
+  "copy",
+  commands.RN,
+  commands.CP,
+  commands.MV,
+  commands.COMPRESS,
+  commands.DECOMPRESS,
+];
 
-const commands_with_paths = [commands.CD, commands.CAT, commands.RM, commands.MV];
+const commands_with_paths = [
+  commands.CD,
+  commands.CAT,
+  commands.RM,
+  commands.MV,
+];
 
 export async function validateArgs(command, args) {
   const parsedArgs = parseArgs(args);

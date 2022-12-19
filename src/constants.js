@@ -15,7 +15,7 @@ export const commands = {
   CP: "cp",
   MV: "mv",
   COMPRESS: "compress",
-  DECOMPRESS: "decompress"
+  DECOMPRESS: "decompress",
 };
 
 export const errors = {

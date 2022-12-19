@@ -7,7 +7,9 @@ const compressCallback = async (args) => {
   const [filePath, destinationDir] = args;
   const file = path.basename(filePath);
   const readStream = fs.createReadStream(filePath);
-  const writeStream = fs.createWriteStream(path.join(destinationDir, `${file}.br`));
+  const writeStream = fs.createWriteStream(
+    path.join(destinationDir, `${file}.br`)
+  );
   const brotli = zlib.createBrotliCompress();
   readStream.pipe(brotli).pipe(writeStream);
 };

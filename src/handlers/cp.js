@@ -1,6 +1,7 @@
 import { commandHandler } from "./../decorators/commandHandler.js";
 import fs from "fs";
 import path from "path";
+import { pipeline } from "stream/promises";
 
 const cpCallback = async (args) => {
   const [oldPath, destinationDir] = args;
@@ -9,9 +10,7 @@ const cpCallback = async (args) => {
   const readableStream = fs.createReadStream(oldPath, "utf8");
   const writableStream = fs.createWriteStream(path.join(destinationDir, file));
 
-  readableStream.on("data", (chunk) => {
-    writableStream.write(chunk);
-  });
+  await pipeline(readableStream, writableStream);
 };
 
 export const handleCP = commandHandler(cpCallback);

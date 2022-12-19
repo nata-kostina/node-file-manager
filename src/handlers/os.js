@@ -11,9 +11,12 @@ const osCallback = (args) => {
       break;
     case "--cpus":
       const numOfCpus = os.cpus().length;
-      const cpusInfo = os.cpus().map(({ model, speed }) => {
-        return { model, "clock rate": `${speed / 1000}GHz` };
-      });
+      const cpusInfo = os
+        .cpus()
+        .map(({ model, speed }) => ({
+          model,
+          "clock rate": `${speed / 1000}GHz`,
+        }));
       console.log(`CPUS number: ${numOfCpus}`);
       console.table(cpusInfo);
       break;
